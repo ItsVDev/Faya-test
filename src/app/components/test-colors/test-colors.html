@@ -1,0 +1,28 @@
+<div class="p-4">
+    <div class="flex border-b border-gray-200">
+        @for (tab of tabs(); track tab) {
+        <button (click)="setActiveTab(tab)" [class.bg-blue-800]="activeTab() === tab"
+            [class.text-white]="activeTab() === tab"
+            class="py-2 px-4 text-sm font-medium text-gray-700 focus:outline-none">
+            {{ tab | titlecase }} Colors
+        </button>
+        }
+    </div>
+
+    <div class="mt-4">
+        @if (filteredData().length > 0) {
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            @for (item of filteredData(); track item.color_name) {
+            <div class="flex flex-col items-center p-2 rounded shadow-sm hover:shadow-md transition">
+                <div class="w-10 h-10 rounded mb-2" [style.background-color]="item.hexcode"></div>
+                <span class="text-xs text-gray-700 text-center">{{ item.color_name }}</span>
+            </div>
+            }
+        </div>
+        } @else {
+        <div class="p-4 text-center text-gray-500">
+            No data found for this type.
+        </div>
+        }
+    </div>
+</div>
