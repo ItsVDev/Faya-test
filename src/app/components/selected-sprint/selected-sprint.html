@@ -1,0 +1,22 @@
+<div class="bg-white shadow p-4 rounded-2xl mt-4">
+    <h2 class="text-xl font-semibold mb-2">Auto-Selected Sprint Stories</h2>
+
+    <ul class="list-disc pl-5">
+
+        @for (s of storyService.selectedStories(); track s) {
+        <li>
+            {{ s.name }} — {{ s.points }} pts
+        </li>
+        }
+    </ul>
+
+    @if(storyService.selectedStories().length === 0){
+    <div class="text-gray-500">
+        No stories selected yet.
+    </div>
+    }
+
+    <div class="mt-3 font-semibold">
+        Total Points: {{ storyService.totalPoints() }}
+    </div>
+</div>

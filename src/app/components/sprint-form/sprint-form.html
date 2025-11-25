@@ -1,0 +1,30 @@
+<div class="bg-white shadow p-4 rounded-2xl mt-4 flex flex-col gap-3">
+  <h2 class="text-xl font-semibold">Sprint Settings</h2>
+  <input
+    type="number"
+    [(ngModel)]="capacity"
+    placeholder="Sprint Capacity"
+    class="border p-2 rounded"
+  />
+
+  <div class="flex gap-3">
+    <button
+      (click)="generateSprint()"
+      class="bg-green-900 text-white py-2 px-3 rounded hover:bg-green-700"
+    >
+      Generate Sprint
+    </button>
+    <button
+      (click)="clearStories()"
+      class="bg-red-900 text-white py-2 px-3 rounded hover:bg-red-700"
+    >
+      Clear All
+    </button>
+    <button
+      (click)="clearSelectedStories()"
+      class="bg-yellow-800 text-white py-2 px-3 rounded hover:bg-yellow-600"
+    >
+      Clear Selection
+    </button>
+  </div>
+</div>

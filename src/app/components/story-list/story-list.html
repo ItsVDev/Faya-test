@@ -1,0 +1,21 @@
+<div class="bg-white shadow p-4 rounded-2xl mt-4">
+  <h2 class="text-xl font-semibold mb-2">All Stories</h2>
+
+  <ul class="divide-y">
+    @for (s of storyService.stories(); track s) {
+      <li class="py-2 flex justify-between items-center">
+        <div>
+          <span class="font-medium">{{ s.name }}</span>
+          <span class="text-gray-500 text-sm">({{ s.points }} pts)</span>
+        </div>
+
+        <span
+          class="text-xs font-semibold px-2 py-1 rounded-full"
+          [class]="getPriorityClass(s.priority)"
+        >
+          {{ getPriorityLabel(s.priority) }}
+        </span>
+      </li>
+    }
+  </ul>
+</div>
